@@ -1,0 +1,221 @@
+---
+// Features.astro
+
+const deals = [
+  { icon: "shopping_bag", store: "Target", benefit: "5% Extra Cashback", active: true },
+  { icon: "local_gas_station", store: "Shell", benefit: "10¢ off per gallon", active: false },
+  { icon: "restaurant", store: "Chipotle", benefit: "$2 off with Chase", active: false },
+];
+
+const languages = ["EN", "ES", "FR", "PT", "DE", "ZH", "JA", "KO", "IT", "RU", "AR", "HI"];
+---
+
+<section id="features" class="py-24 px-6 md:px-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="mb-14">
+      <span
+        class="text-xs font-bold tracking-widest uppercase text-primary dark:text-blue-400 mb-3 block"
+      >
+        Platform Features
+      </span>
+      <h2
+        class="font-headline font-bold text-4xl md:text-5xl tracking-tight
+               text-slate-900 dark:text-white mb-4"
+      >
+        Engineered for Value.
+      </h2>
+      <p class="text-slate-500 dark:text-slate-400 max-w-xl text-lg">
+        Powerful features inspired by pro-level financial tools, simplified for everyone.
+      </p>
+    </div>
+
+    <!-- Bento grid -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+
+      <!-- ── Card 1: Savings tracker (large) ──────────────── -->
+      <div
+        class="md:col-span-7 rounded-[2.5rem] p-10 flex flex-col justify-between
+               border relative overflow-hidden group
+               bg-white border-slate-100
+               dark:bg-[#1a1d1f] dark:border-white/6"
+      >
+        <div class="relative z-10">
+          <span
+            class="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full inline-block mb-5
+                   bg-cyan-50 text-cyan-700
+                   dark:bg-cyan-400/10 dark:text-cyan-400"
+          >
+            Live Stats
+          </span>
+          <h3
+            class="font-headline font-bold text-3xl mb-4
+                   text-slate-900 dark:text-white"
+          >
+            Total Savings Tracker
+          </h3>
+          <p class="text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed">
+            Watch your cumulative savings grow in real-time. We calculate every penny
+            saved through optimized card usage.
+          </p>
+        </div>
+
+        <!-- Big number -->
+        <div class="mt-10 relative z-10 flex items-end gap-3">
+          <span
+            class="font-headline font-black text-6xl tracking-tighter text-primary dark:text-blue-400"
+          >
+            $1,420.50
+          </span>
+          <span
+            class="mb-2 text-sm font-bold px-2.5 py-1 rounded-lg
+                   bg-emerald-50 text-emerald-700
+                   dark:bg-emerald-500/10 dark:text-emerald-400"
+          >
+            +12%
+          </span>
+        </div>
+
+        <!-- Mini sparkline (decorative) -->
+        <div class="mt-4 relative z-10 flex items-end gap-1 h-12">
+          {
+            [30, 50, 40, 70, 55, 80, 65, 90, 75, 100, 85, 95].map((h) => (
+              <div
+                class="flex-1 rounded-t-sm bg-primary/15 dark:bg-blue-400/15 transition-all"
+                style={`height: ${h}%;`}
+              />
+            ))
+          }
+        </div>
+
+        <!-- Decorative bubble -->
+        <div
+          class="absolute -right-16 -bottom-16 w-64 h-64 rounded-full
+                 bg-primary/5 dark:bg-primary/10
+                 group-hover:scale-110 transition-transform duration-700"
+        ></div>
+      </div>
+
+      <!-- ── Card 2: Best deals (small) ───────────────────── -->
+      <div
+        class="md:col-span-5 rounded-[2.5rem] p-8 flex flex-col justify-between
+               border overflow-hidden group
+               bg-slate-50 border-slate-100
+               dark:bg-[#141618] dark:border-white/6"
+      >
+        <div>
+          <h3
+            class="font-headline font-bold text-2xl mb-2
+                   text-slate-900 dark:text-white"
+          >
+            Best Deals Weekly
+          </h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+            Personalized offers curated for your cards and memberships.
+          </p>
+        </div>
+
+        <div
+          class="mt-8 flex flex-col gap-3 translate-y-2 group-hover:translate-y-0
+                 transition-transform duration-500"
+        >
+          {
+            deals.map((deal) => (
+              <div
+                class={`p-4 rounded-2xl flex items-center gap-3 border transition-all
+                  ${deal.active
+                    ? "bg-white border-slate-200 shadow-sm dark:bg-white/8 dark:border-white/10"
+                    : "opacity-50 bg-white border-slate-100 dark:bg-white/3 dark:border-white/5"
+                  }`}
+              >
+                <span class="material-symbols-outlined text-primary dark:text-blue-400">
+                  {deal.icon}
+                </span>
+                <div class="flex-1 min-w-0">
+                  <div class="font-bold text-sm text-slate-900 dark:text-white">
+                    {deal.store}
+                  </div>
+                  <div class="text-xs text-slate-500 dark:text-slate-400">{deal.benefit}</div>
+                </div>
+                {deal.active && (
+                  <span
+                    class="text-xs font-bold px-2 py-0.5 rounded-full
+                           text-primary bg-blue-50
+                           dark:text-blue-400 dark:bg-blue-500/10"
+                  >
+                    Active
+                  </span>
+                )}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- ── Card 3: Multi-language & Themes (full width) ── -->
+      <div
+        class="md:col-span-12 rounded-[2.5rem] p-10 overflow-hidden
+               flex flex-col md:flex-row items-center justify-between gap-10
+               bg-slate-900 text-white
+               dark:bg-[#0a0c0e] dark:border dark:border-white/5"
+      >
+        <!-- Copy -->
+        <div class="md:w-1/2">
+          <span
+            class="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full inline-block mb-5
+                   bg-white/10 text-white/70"
+          >
+            Personalization
+          </span>
+          <h3 class="font-headline font-bold text-3xl mb-4">
+            Multi-language &amp; Themes
+          </h3>
+          <p class="text-slate-400 leading-relaxed max-w-md">
+            Your vault, your rules. Switch between Dark and Light modes
+            effortlessly, or choose from 12 supported languages to make saving
+            feel like home.
+          </p>
+        </div>
+
+        <!-- Visuals: theme swatches + language pills -->
+        <div class="md:w-1/2 flex flex-col gap-5">
+          <!-- Theme picker mockup -->
+          <div class="flex gap-4">
+            <div
+              class="flex-1 p-4 rounded-2xl border border-white/10 bg-white/5 flex flex-col gap-2"
+            >
+              <p class="text-[10px] font-bold text-white/40 uppercase tracking-wider">Light</p>
+              <div class="w-full h-3 bg-white/20 rounded-full"></div>
+              <div class="w-3/5 h-3 bg-white/10 rounded-full"></div>
+            </div>
+            <div
+              class="flex-1 p-4 rounded-2xl border border-blue-400/30 bg-blue-600/20 flex flex-col gap-2"
+            >
+              <p class="text-[10px] font-bold text-blue-300 uppercase tracking-wider">Dark</p>
+              <div class="w-full h-3 bg-white/30 rounded-full"></div>
+              <div class="w-3/5 h-3 bg-white/15 rounded-full"></div>
+            </div>
+          </div>
+
+          <!-- Language pills -->
+          <div class="flex flex-wrap gap-2">
+            {
+              languages.map((lang, i) => (
+                <span
+                  class={`px-3 py-1 rounded-full text-xs font-bold transition-colors
+                    ${i === 0
+                      ? "bg-blue-500 text-white"
+                      : "bg-white/8 text-white/50 hover:bg-white/15 hover:text-white/80"
+                    }`}
+                >
+                  {lang}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

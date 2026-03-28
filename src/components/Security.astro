@@ -1,0 +1,144 @@
+---
+// Security.astro
+
+const features = [
+  {
+    icon: "lock_reset",
+    title: "Credentials Protection",
+    description:
+      "We never save bank account credentials, transaction history, or credit card details like numbers or CVVs. Your sensitive data stays with you.",
+  },
+  {
+    icon: "encrypted",
+    title: "Local-First Storage",
+    description:
+      "Most data is stored locally on your device. What we do sync is protected with military-grade encryption protocols for maximum professional-grade safety.",
+  },
+  {
+    icon: "verified_user",
+    title: "Zero-Knowledge Architecture",
+    description:
+      "Our servers are architecturally incapable of reading your personal financial information. Privacy is built into the foundation, not bolted on.",
+  },
+];
+---
+
+<section
+  id="security"
+  class="py-24 px-6 md:px-8
+         bg-slate-900 dark:bg-[#080a0c]"
+>
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+
+    <!-- Left: copy -->
+    <div class="md:w-1/2 text-white">
+      <span
+        class="text-xs font-bold tracking-widest uppercase text-blue-400 mb-4 block"
+      >
+        Bank-Level Privacy
+      </span>
+      <h2
+        class="font-headline font-bold text-4xl md:text-5xl tracking-tight mb-10 leading-tight"
+      >
+        Sensitive Data is <br />Never Stored.
+      </h2>
+
+      <div class="space-y-8">
+        {
+          features.map((f) => (
+            <div class="flex gap-5 group">
+              <div
+                class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0
+                       bg-white/8 border border-white/10 text-blue-400
+                       group-hover:bg-blue-500/20 group-hover:border-blue-500/30
+                       transition-all duration-300"
+              >
+                <span class="material-symbols-outlined">{f.icon}</span>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg text-white mb-2">{f.title}</h4>
+                <p class="text-slate-400 leading-relaxed text-sm">{f.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Trust badges -->
+      <div class="mt-12 flex flex-wrap gap-3">
+        {
+          ["SOC 2 Type II", "GDPR Compliant", "256-bit AES", "Zero-Knowledge"].map((badge) => (
+            <span
+              class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide
+                     border border-white/10 text-slate-300 bg-white/5
+                     hover:border-blue-500/40 hover:bg-blue-500/10 hover:text-blue-300
+                     transition-all cursor-default"
+            >
+              {badge}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Right: security visual -->
+    <div class="md:w-1/2">
+      <div
+        class="relative rounded-[3rem] p-8 overflow-hidden border
+               bg-white/4 border-white/8 backdrop-blur-sm"
+      >
+        <!-- Shield icon (large, decorative) -->
+        <div class="relative text-center py-10">
+          <div class="relative inline-flex">
+            <!-- Pulsing rings -->
+            <div
+              class="absolute inset-0 rounded-full bg-blue-500/10 animate-ping"
+              style="animation-duration: 2.5s;"
+            ></div>
+            <div
+              class="absolute -inset-4 rounded-full bg-blue-500/5 animate-ping"
+              style="animation-duration: 3.5s; animation-delay: 0.5s;"
+            ></div>
+
+            <div
+              class="relative w-32 h-32 rounded-full bg-blue-gradient
+                     flex items-center justify-center shadow-2xl shadow-blue-500/30"
+            >
+              <span class="material-symbols-outlined text-6xl text-white">security</span>
+            </div>
+          </div>
+
+          <div class="mt-10">
+            <p class="text-2xl font-headline font-bold text-white mb-2">
+              Encrypted &amp; Verified
+            </p>
+            <p class="text-sm text-slate-500">Security Protocol v2.4 · Active</p>
+          </div>
+        </div>
+
+        <!-- Status rows -->
+        <div class="space-y-3 mt-4">
+          {
+            [
+              { label: "End-to-End Encryption", status: "Active" },
+              { label: "Biometric Lock", status: "Enabled" },
+              { label: "Breach Monitor", status: "Watching" },
+            ].map((row) => (
+              <div
+                class="flex items-center justify-between px-5 py-3 rounded-2xl
+                       bg-white/5 border border-white/6"
+              >
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span class="text-sm text-slate-300">{row.label}</span>
+                </div>
+                <span class="text-xs font-bold text-emerald-400">{row.status}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

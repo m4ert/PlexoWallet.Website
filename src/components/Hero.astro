@@ -1,0 +1,170 @@
+---
+// Hero.astro
+---
+
+<section
+  class="relative overflow-hidden px-6 md:px-8 py-20 md:py-32 max-w-7xl mx-auto
+         grid md:grid-cols-2 gap-12 items-center"
+>
+  <!-- Ambient blobs -->
+  <div
+    class="absolute -top-40 -left-40 w-[36rem] h-[36rem] rounded-full blur-3xl pointer-events-none
+           bg-primary/5 dark:bg-primary/10"
+  ></div>
+  <div
+    class="absolute -bottom-20 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none
+           bg-tertiary-fixed/10 dark:bg-tertiary-fixed/5"
+  ></div>
+
+  <!-- Left: copy -->
+  <div class="relative z-10">
+    <span
+      class="text-xs font-bold tracking-widest uppercase text-primary dark:text-primary-fixed mb-4 block"
+    >
+      Ultimate Savings
+    </span>
+
+    <h1
+      class="font-headline font-extrabold text-5xl md:text-7xl tracking-tighter
+             text-slate-900 dark:text-white
+             mb-6 leading-[1.1]"
+    >
+      Save more than you{" "}
+      <span class="text-blue-gradient">thought possible.</span>
+    </h1>
+
+    <p class="text-slate-500 dark:text-slate-400 text-lg md:text-xl mb-10 max-w-lg leading-relaxed">
+      The only secure wallet for your credit cards and memberships.
+      Optimize every transaction without sharing sensitive data.
+    </p>
+
+    <div class="flex flex-wrap gap-4">
+      <button
+        class="bg-blue-gradient text-white px-8 py-4 rounded-full font-bold text-base
+               shadow-xl shadow-blue-500/25 hover:opacity-90 hover:shadow-2xl hover:shadow-blue-500/30
+               active:scale-95 transition-all flex items-center gap-2"
+      >
+        Get Started Free
+        <span class="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
+      </button>
+
+      <button
+        class="px-8 py-4 rounded-full font-bold text-base transition-all
+               bg-slate-100 text-slate-700 hover:bg-slate-200
+               dark:bg-white/10 dark:text-white dark:hover:bg-white/15
+               flex items-center gap-2"
+      >
+        <span class="material-symbols-outlined text-[1.1rem]">play_circle</span>
+        Watch Demo
+      </button>
+    </div>
+
+    <!-- Social proof pills -->
+    <div class="mt-10 flex flex-wrap items-center gap-3">
+      <div
+        class="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold
+               bg-emerald-50 text-emerald-700
+               dark:bg-emerald-500/10 dark:text-emerald-400"
+      >
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        50,000+ active users
+      </div>
+      <div
+        class="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold
+               bg-slate-100 text-slate-600
+               dark:bg-white/8 dark:text-slate-300"
+      >
+        <span class="material-symbols-outlined text-[0.9rem]">star</span>
+        4.9 on App Store
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: mock card UI -->
+  <div class="relative z-10">
+    <div
+      class="absolute -top-20 -right-20 w-96 h-96 rounded-full blur-3xl pointer-events-none
+             bg-primary/10 dark:bg-primary/20"
+    ></div>
+
+    <div
+      class="relative rounded-[2.5rem] p-6 shadow-2xl border
+             bg-white border-slate-100
+             dark:bg-[#1a1d1f] dark:border-white/8"
+    >
+      <!-- Top bar -->
+      <div class="flex items-center justify-between mb-5">
+        <div>
+          <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wide">
+            Total Saved
+          </p>
+          <p class="text-3xl font-black font-headline text-slate-900 dark:text-white tracking-tight">
+            $1,420.50
+          </p>
+        </div>
+        <span
+          class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold
+                 bg-emerald-50 text-emerald-600
+                 dark:bg-emerald-500/15 dark:text-emerald-400"
+        >
+          <span class="material-symbols-outlined text-[0.8rem]">trending_up</span>
+          +12%
+        </span>
+      </div>
+
+      <!-- Card mockup list -->
+      <div class="space-y-3 mb-5">
+        {
+          [
+            { name: "Chase Sapphire", type: "Travel", color: "#0253cd", icon: "credit_card" },
+            { name: "Amex Gold", type: "Dining", color: "#b45309", icon: "dining" },
+            { name: "Citi Double Cash", type: "Cashback", color: "#059669", icon: "payments" },
+          ].map((card) => (
+            <div
+              class="flex items-center gap-3 p-3 rounded-2xl border
+                     bg-slate-50 border-slate-100
+                     dark:bg-white/5 dark:border-white/5"
+            >
+              <div
+                class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
+                style={`background: ${card.color}18;`}
+              >
+                <span
+                  class="material-symbols-outlined text-[1.1rem]"
+                  style={`color: ${card.color};`}
+                >
+                  {card.icon}
+                </span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate">
+                  {card.name}
+                </p>
+                <p class="text-xs text-slate-400 dark:text-slate-500">{card.type}</p>
+              </div>
+              <span
+                class="text-xs font-bold px-2 py-0.5 rounded-full
+                       bg-blue-50 text-primary
+                       dark:bg-blue-500/10 dark:text-blue-400"
+              >
+                Best
+              </span>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Bottom recommendation bar -->
+      <div
+        class="bg-blue-gradient rounded-2xl p-4 flex items-center gap-3 text-white"
+      >
+        <span class="material-symbols-outlined text-white/80">auto_awesome</span>
+        <div class="flex-1">
+          <p class="text-xs font-semibold opacity-80">Best card at Whole Foods</p>
+          <p class="text-sm font-bold">Chase Sapphire — 3× points</p>
+        </div>
+        <span class="material-symbols-outlined text-white/60 text-sm">chevron_right</span>
+      </div>
+    </div>
+  </div>
+</section>
