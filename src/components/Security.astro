@@ -4,21 +4,21 @@
 const features = [
   {
     icon: "lock_reset",
-    title: "Credentials Protection",
+    title: "Only what’s necessary:",
     description:
-      "We never save bank account credentials, transaction history, or credit card details like numbers or CVVs. Your sensitive data stays with you.",
+      "We don’t ask for sensitive financial data or personal credentials. We only collect the minimum information required to give you a great experience.",
   },
   {
     icon: "encrypted",
-    title: "Local-First Storage",
+    title: "Encrypted traffic & storage",
     description:
-      "Most data is stored locally on your device. What we do sync is protected with military-grade encryption protocols for maximum professional-grade safety.",
+      "Your data is encrypted both in transit and at rest using industry-standard protocols. We make sure your information stays private.",
   },
   {
     icon: "verified_user",
-    title: "Zero-Knowledge Architecture",
+    title: "Proactive maintenance",
     description:
-      "Our servers are architecturally incapable of reading your personal financial information. Privacy is built into the foundation, not bolted on.",
+      "We constantly monitor and update our software dependencies to stay ahead of vulnerabilities and keep our systems secure.",
   },
 ];
 ---
@@ -35,12 +35,12 @@ const features = [
       <span
         class="text-xs font-bold tracking-widest uppercase text-blue-400 mb-4 block"
       >
-        Bank-Level Privacy
+        Standard Security Practices
       </span>
       <h2
         class="font-headline font-bold text-4xl md:text-5xl tracking-tight mb-10 leading-tight"
       >
-        Sensitive Data is <br />Never Stored.
+        Your privacy, <br /> handled with care.
       </h2>
 
       <div class="space-y-8">
@@ -67,7 +67,12 @@ const features = [
       <!-- Trust badges -->
       <div class="mt-12 flex flex-wrap gap-3">
         {
-          ["SOC 2 Type II", "GDPR Compliant", "256-bit AES", "Zero-Knowledge"].map((badge) => (
+          [
+            "GDPR Aligned",
+            "Industry-Standard AES",
+            "Data Minimization",
+            "Secure Traffic"
+          ].map((badge) => (
             <span
               class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide
                      border border-white/10 text-slate-300 bg-white/5
@@ -112,7 +117,9 @@ const features = [
             <p class="text-2xl font-headline font-bold text-white mb-2">
               Encrypted &amp; Verified
             </p>
-            <p class="text-sm text-slate-500">Security Protocol v2.4 · Active</p>
+            <p class="text-sm text-slate-500">
+              Industry-Standard Encryption
+            </p>
           </div>
         </div>
 
@@ -120,9 +127,9 @@ const features = [
         <div class="space-y-3 mt-4">
           {
             [
-              { label: "End-to-End Encryption", status: "Active" },
-              { label: "Biometric Lock", status: "Enabled" },
-              { label: "Breach Monitor", status: "Watching" },
+              { label: "Secure Data Transfer", status: "Encrypted" },
+              { label: "Device-Level Security", status: "Supported" },
+              { label: "Dependency Audits", status: "Up-to-Date" },
             ].map((row) => (
               <div
                 class="flex items-center justify-between px-5 py-3 rounded-2xl

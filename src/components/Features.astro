@@ -7,7 +7,7 @@ const deals = [
   { icon: "restaurant", store: "Chipotle", benefit: "$2 off with Chase", active: false },
 ];
 
-const languages = ["EN", "ES", "FR", "PT", "DE", "ZH", "JA", "KO", "IT", "RU", "AR", "HI"];
+const languages = ["EN", "ES"];
 ---
 
 <section id="features" class="py-24 px-6 md:px-8">
@@ -26,7 +26,8 @@ const languages = ["EN", "ES", "FR", "PT", "DE", "ZH", "JA", "KO", "IT", "RU", "
         Engineered for Value.
       </h2>
       <p class="text-slate-500 dark:text-slate-400 max-w-xl text-lg">
-        Powerful features inspired by pro-level financial tools, simplified for everyone.
+        Simplified features powered by smart algorithms ensure you always receive the 
+        best possible offers and shopping results, regardless of where you shop.
       </p>
     </div>
 
@@ -172,7 +173,7 @@ const languages = ["EN", "ES", "FR", "PT", "DE", "ZH", "JA", "KO", "IT", "RU", "
           </h3>
           <p class="text-slate-400 leading-relaxed max-w-md">
             Your vault, your rules. Switch between Dark and Light modes
-            effortlessly, or choose from 12 supported languages to make saving
+            effortlessly, or choose from {languages.length} supported languages to make saving
             feel like home.
           </p>
         </div>
